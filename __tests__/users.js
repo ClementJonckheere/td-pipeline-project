@@ -5,6 +5,6 @@ describe('Test suite users feat', () => {
   it('GET /users return 200', async () => {
     const res = await request(app).get('/users')
 
-    expect(res.status).toEqual(201)
+    expect(res.status).toEqual(200)
   })
 })
