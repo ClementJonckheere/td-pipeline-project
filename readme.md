@@ -9,6 +9,7 @@ API REST Express.js avec une chaîne d'intégration continue complète.
 ### Validation locale (Git Hooks)
 
 Avant chaque commit, les hooks Husky exécutent automatiquement :
+
 - **ESLint** : vérification du code
 - **Prettier** : vérification du formatage
 
@@ -20,13 +21,13 @@ Le pipeline se déclenche sur chaque push sur la branche `development`.
 
 ### Jobs et dépendances
 
-| Job | Dépend de | Description |
-|-----|-----------|-------------|
-| `build-test` | - | Install, lint, format, tests unitaires |
-| `sonar-analysis` | build-test | Analyse SonarCloud + Quality Gate |
-| `docker-build` | sonar-analysis | Construction image Docker |
-| `security-scan` | docker-build | Scan Trivy (vulnérabilités) |
-| `publish-ghcr` | security-scan | Publication sur GHCR |
+| Job              | Dépend de      | Description                            |
+| ---------------- | -------------- | -------------------------------------- |
+| `build-test`     | -              | Install, lint, format, tests unitaires |
+| `sonar-analysis` | build-test     | Analyse SonarCloud + Quality Gate      |
+| `docker-build`   | sonar-analysis | Construction image Docker              |
+| `security-scan`  | docker-build   | Scan Trivy (vulnérabilités)            |
+| `publish-ghcr`   | security-scan  | Publication sur GHCR                   |
 
 ### Sécurité
 
