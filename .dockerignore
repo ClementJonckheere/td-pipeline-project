@@ -1,0 +1,36 @@
+# Dependencies
+node_modules
+
+# Git
+.git
+.gitignore
+
+# IDE
+.idea
+.vscode
+*.swp
+
+# Environment
+.env
+.env.*
+
+# Tests & Coverage
+__tests__
+coverage
+*.test.js
+
+# CI/CD
+.github
+.husky
+
+# Sonar
+.scannerwork
+sonar-project.properties
+
+# Docker
+Dockerfile
+.dockerignore
+
+# Logs
+*.log
+npm-debug.log*
