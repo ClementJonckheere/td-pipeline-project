@@ -75,9 +75,6 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
-  # ============================================
-  # JOB 3: Build Docker Image
-  # ============================================
   docker-build:
     name: Build Docker Image
     runs-on: ubuntu-latest
