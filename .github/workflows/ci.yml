@@ -71,7 +71,7 @@ jobs:
         run: |
           sleep 30
           echo "Fetching Quality Gate status..."
-          RESPONSE=$(curl -s -u ${{ secrets.SONAR_TOKEN }}: "https://sonarcloud.io/api/qualitygates/project_status?projectKey=clement-jonckheere_td-pipeline-project")
+          RESPONSE=$(curl -s -u ${{ secrets.SONAR_TOKEN }}: "https://sonarcloud.io/api/qualitygates/project_status?projectKey=ClementJonckheere_td-pipeline-project")
           echo "API Response: $RESPONSE"
           STATUS=$(echo $RESPONSE | jq -r '.projectStatus.status')
           echo "Quality Gate Status: $STATUS"
