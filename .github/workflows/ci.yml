@@ -69,11 +69,14 @@ jobs:
 
       - name: Check Quality Gate
         run: |
-          sleep 10
-          STATUS=$(curl -s -u ${{ secrets.SONAR_TOKEN }}: "https://sonarcloud.io/api/qualitygates/project_status?projectKey=clement-jonckheere_td-pipeline-project" | jq -r '.projectStatus.status')
+          sleep 30
+          echo "Fetching Quality Gate status..."
+          RESPONSE=$(curl -s -u ${{ secrets.SONAR_TOKEN }}: "https://sonarcloud.io/api/qualitygates/project_status?projectKey=clement-jonckheere_td-pipeline-project")
+          echo "API Response: $RESPONSE"
+          STATUS=$(echo $RESPONSE | jq -r '.projectStatus.status')
           echo "Quality Gate Status: $STATUS"
           if [ "$STATUS" != "OK" ]; then
-            echo "Quality Gate failed!"
+            echo "Quality Gate failed or not ready!"
             exit 1
           fi
 
